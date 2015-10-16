@@ -39,6 +39,9 @@ gem 'paperclip', '~> 4.3'
 # exifr to read exif data from uploaded images
 gem 'exifr', '~> 1.2'
 
+# gem for tagging
+gem 'acts-as-taggable-on', '~> 3.4'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

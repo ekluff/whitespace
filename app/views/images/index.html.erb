@@ -1,28 +1,36 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Images</h1>
+<h1>All Images</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Caption</th>
-      <th>Title</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @images.each do |image| %>
-      <tr>
-        <td><%= image.caption %></td>
-        <td><%= image.title %></td>
-        <td><%= link_to 'Show', image %></td>
-        <td><%= link_to 'Edit', edit_image_path(image) %></td>
-        <td><%= link_to 'Destroy', image, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<% @images.each do |image| %>
+  <div class="row">
+    <div class="col-md-4">
+      <h4>
+        <%= image.title %>
+      </h4>
+      <p>
+        <%= image.caption %>
+      </p>
+      <% if image.splash %>
+        <p>
+          This image is displayed on the home page.
+        </p>
+      <% end %>
+    </div>
+    <div class="col-md-4">
+      <%= image_tag image.asset.url(:medium) %>
+    </div>
+    <div class="col-md-4">
+      <div class="list-unstyled">
+        <ul>
+          <li><%= link_to 'See more >', image %></li>
+          <li><%= link_to 'Edit', edit_image_path(image) %></li>
+          <li><%= link_to 'Destroy', image, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+<% end %>
 
 <br>
 
