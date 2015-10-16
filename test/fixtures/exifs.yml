@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  camera: MyString
+  software: MyString
+  iso: 1
+  shutter: MyString
+  aperture: MyString
+  taken: 2015-10-15 17:03:32
+  exposure_bias: MyString
+  flash: false
+  focal_length: MyString
+  image_id: 
+
+two:
+  camera: MyString
+  software: MyString
+  iso: 1
+  shutter: MyString
+  aperture: MyString
+  taken: 2015-10-15 17:03:32
+  exposure_bias: MyString
+  flash: false
+  focal_length: MyString
+  image_id: 
