@@ -42,6 +42,10 @@ class ImagesController < ApplicationController
   def update
     asset = @image.asset
 
+    @locations = Image.tag_counts_on(:locations)
+    @contents = Image.tag_counts_on(:contents)
+    @keywords = Image.tag_counts_on(:keywords)
+
     respond_to do |format|
       if @image.update(image_params)
         format.html { redirect_to @image, notice: 'Image was successfully updated.' }
@@ -77,6 +81,6 @@ class ImagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def image_params
-      params.require(:image).permit(:caption, :title, :asset, :splash, :tag_list)
+      params.require(:image).permit(:caption, :title, :asset, :splash, :location_list, :content_list, :keyword_list )
     end
 end

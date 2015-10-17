@@ -24,6 +24,16 @@
     <%= f.text_area :caption, size: "40x10" %>
   </div>
   <div class="field">
+    <% if @locations.any? %>
+      <% @locations.each do |location| %>
+        <%= location.name %>
+        <%= check_box 'location_list[]', location.name %>
+      <% end %>
+    <% else %>
+      <!-- add a location -->
+    <% end %>
+  </div>
+  <div class="field">
     <%= f.label :splash, "Display on homepage?" %>
     <%= f.check_box :splash %>
   </div>

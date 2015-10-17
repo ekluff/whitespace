@@ -1,7 +1,7 @@
 class Image < ActiveRecord::Base
   has_one :exif, dependent: :destroy
   accepts_nested_attributes_for :exif
-  acts_as_taggable_on :locations, :keywords, :content
+  acts_as_taggable_on :locations, :contents, :keywords
   has_attached_file :asset,
     styles: {
       large: "2000x2000>",
