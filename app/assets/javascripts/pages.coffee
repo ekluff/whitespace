@@ -4,7 +4,9 @@
 
 ready = ->
   $('#gallery').justifiedGallery(
-    rowHeight: 240
+    rowHeight: 300
+    margins: 40
+    border: 0
   )
 
 $(document).ready(ready)
