@@ -1,17 +1,17 @@
 class Image < ActiveRecord::Base
-  has_one :exif, dependent: :destroy
-  accepts_nested_attributes_for :exif
-  acts_as_taggable_on :locations, :contents, :keywords
-  has_attached_file :asset,
-    styles: {
-      large: "2000x2000>",
-      medium: "768x768>",
-      small: "240x240>",
-      thumb: "100x100>" },
-    default_style: :medium,
-    convert_options: {
-      all: "-strip",
-    }
+  has_one                           :exif, dependent: :destroy
+  has_attached_file                 :asset, styles: {
+                                              large: "2000x2000>",
+                                              medium: "768x768>",
+                                              small: "240x240>",
+                                              thumb: "100x100>" },
+                                            default_style: :medium,
+                                            convert_options: {
+                                              all: "-strip",
+                                            }
+
+  accepts_nested_attributes_for     :exif
+  acts_as_taggable_on               :locations, :contents, :keywords
 
   before_save                       :format_title, on: [:create, :update]
   after_post_process                :save_exif
