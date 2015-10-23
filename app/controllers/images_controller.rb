@@ -19,6 +19,9 @@ class ImagesController < ApplicationController
 
   # GET /images/1/edit
   def edit
+    @locations = @image.locations
+    @contents = Image.tag_counts_on(:contents)
+    @keywords = Image.tag_counts_on(:keywords)
   end
 
   # POST /images
@@ -40,11 +43,7 @@ class ImagesController < ApplicationController
   # PATCH/PUT /images/1
   # PATCH/PUT /images/1.json
   def update
-    asset = @image.asset
-
-    @locations = Image.tag_counts_on(:locations)
-    @contents = Image.tag_counts_on(:contents)
-    @keywords = Image.tag_counts_on(:keywords)
+    # asset = @image.asset
 
     respond_to do |format|
       if @image.update(image_params)
@@ -56,7 +55,7 @@ class ImagesController < ApplicationController
       end
     end
 
-    @image.asset = asset unless @image.asset != nil
+    # @image.asset = asset unless @image.asset != nil
   end
 
   # DELETE /images/1
@@ -74,13 +73,13 @@ class ImagesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_image
-      @image = Image.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_image
+    @image = Image.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def image_params
-      params.require(:image).permit(:caption, :title, :asset, :splash, :location_list, :content_list, :keyword_list )
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def image_params
+    params.require(:image).permit(:caption, :title, :asset, :splash, :location_list, :content_list, :keyword_list )
+  end
 end
