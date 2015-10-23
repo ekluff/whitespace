@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users
   devise_for :admins
-  resources :images
+
+  authenticated :admin do
+    resources :images, only: [:new, :create, :edit, :update, :destroy]
+  end
+
+  resources :images, only: [:index, :show]
 
   root 'images#index'
 
