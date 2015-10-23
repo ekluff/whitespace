@@ -15,4 +15,5 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require justifiedGallery
+//= require lightbox
 //= require_tree .
