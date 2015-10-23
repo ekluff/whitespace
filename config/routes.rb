@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
-  devise_for :admins
+
+  scope '/d8heo2b46n' do
+    devise_for :admins
+  end
 
   # protection for admin-only routes. Alternative way is to protect in the images controller with the following:
   # before_action :authenticate_user!, :except => [:show, :index]
