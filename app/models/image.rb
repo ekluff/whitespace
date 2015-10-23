@@ -12,13 +12,13 @@ class Image < ActiveRecord::Base
 
   accepts_nested_attributes_for     :exif
   acts_as_taggable_on               :locations, :contents, :keywords
+  acts_as_commentable
 
   before_save                       :format_title, on: [:create, :update]
   after_post_process                :save_exif
 
   validates                         :asset, attachment_presence: true
   validates_attachment_content_type :asset, content_type: /\Aimage\/.*\Z/
-
 
   private
 
