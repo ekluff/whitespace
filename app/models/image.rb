@@ -13,10 +13,12 @@ class Image < ActiveRecord::Base
       all: "-strip",
     }
 
-  validates :asset, attachment_presence: true
+  before_save                       :format_title, on: [:create, :update]
+  after_post_process                :save_exif
+
+  validates                         :asset, attachment_presence: true
   validates_attachment_content_type :asset, content_type: /\Aimage\/.*\Z/
 
-  after_post_process  :save_exif
 
   private
 
@@ -35,6 +37,10 @@ class Image < ActiveRecord::Base
       flash:          (asset.flash == 1),
       focal_length:    asset.focal_length.to_s,
     })
+  end
+
+  def format_title
+    self.title = self.title.downcase.titleize
   end
 
 end
