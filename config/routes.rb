@@ -5,17 +5,15 @@ Rails.application.routes.draw do
     devise_for :admins
   end
 
-  # protection for admin-only routes. Alternative way is to protect in the images controller with the following:
-  # before_action :authenticate_user!, :except => [:show, :index]
+  # Images routes are only accessible to authenticated admins.
   authenticated :admin do
-    resources :images, only: [:new, :create, :edit, :update, :destroy]
+    resources :images
   end
 
-  # image routes publicly available
-  resources :images, only: [:index, :show]
+  resources :pages
 
   # root route
-  root 'images#index'
+  root 'pages#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
