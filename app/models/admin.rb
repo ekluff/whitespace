@@ -1,3 +1,3 @@
 class Admin < ActiveRecord::Base
-  devise :database_authenticatable, :trackable, :timeoutable, :lockable
+  devise :confirmable, :database_authenticatable, :lockable, :timeoutable, :trackable
 end
