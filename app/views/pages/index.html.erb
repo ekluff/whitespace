@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<% @images.each do |image| %>
+  <div class="row">
+    <div class="col-md-4">
+      <h4>
+        <%= image.title %>
+      </h4>
+      <p>
+        <%= image.caption %>
+      </p>
+      <% if image.splash %>
+        <p>
+          This image is displayed on the home page.
+        </p>
+      <% end %>
+    </div>
+    <div class="col-md-4">
+      <%= image_tag image.asset.url(:medium) %>
+    </div>
+    <div class="col-md-4">
+      <div class="list-unstyled">
+        <ul>
+          <li><%= link_to 'See more >', image %></li>
+          <li><%= link_to 'Edit', edit_image_path(image) %></li>
+          <li><%= link_to 'Destroy', image, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+<% end %>

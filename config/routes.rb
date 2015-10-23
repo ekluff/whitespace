@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
 
+  # camouflage the admin routes
   scope '/d8heo2b46n' do
     devise_for :admins
   end
@@ -10,7 +11,8 @@ Rails.application.routes.draw do
     resources :images
   end
 
-  resources :pages
+  # page resources for publicly avaiable views
+  resources :pages, only: [:index, :show]
 
   # root route
   root 'pages#index'
