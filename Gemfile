@@ -16,6 +16,10 @@ gem 'coffee-rails', '~> 4.1.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+
+# Bind turbolinks events to jquery ready events
+gem 'jquery-turbolinks'
+
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -42,7 +46,6 @@ gem 'exifr', '~> 1.2'
 # gem for tagging
 gem 'acts-as-taggable-on', '~> 3.4'
 
-# custom gems
 # use devise for user authentication
 gem 'devise'
 
