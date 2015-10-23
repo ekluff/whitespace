@@ -3,6 +3,8 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 ready = ->
-  $('#gallery').justifiedGallery()
+  $('#gallery').justifiedGallery(
+    rowHeight: 240
+  )
 
 $(document).ready(ready)
