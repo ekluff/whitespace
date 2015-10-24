@@ -1,0 +1,10 @@
+<div class="comment-form">
+  <%= form_for @new_comment, remote: true do |f| %>
+    <div class="field">
+      <%= f.text_area :body, size: "40x10", class: "form-control" %>
+      <%= f.hidden_field :commentable_id, value: @new_comment.commentable_id %>
+      <%= f.hidden_field :commentable_type, value: @new_comment.commentable_type %>
+    </div>
+    <%= f.submit class: 'btn btn-primary' %>
+  <% end %>
+</div>

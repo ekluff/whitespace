@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @image.title %>
+</p>
+
+<%= image_tag @image.asset.url(:medium) %>
+
+<p>
+  <strong>Caption:</strong>
+  <%= @image.caption %>
+</p>
+
+<% if user_signed_in? %>
+  <%= render 'comments/form' %>
+<% end %>
+
+<%= link_to 'Back', images_path %>
