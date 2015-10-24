@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   # page resources for publicly avaiable views
   resources :pages, only: [:index, :show]
 
+  # comments resources
+  resources :comments, only: [:create, :update, :destroy]
+
   # root route
   root 'pages#index'
 
