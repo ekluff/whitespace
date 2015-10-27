@@ -12,8 +12,4 @@
   <%= @image.caption %>
 </p>
 
-<% if user_signed_in? %>
-  <%= render 'comments/form' %>
-<% end %>
-
 <%= link_to 'Back', images_path %>

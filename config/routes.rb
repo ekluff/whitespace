@@ -14,9 +14,6 @@ Rails.application.routes.draw do
   # page resources for publicly avaiable views
   resources :pages, only: [:index, :show]
 
-  # comments resources
-  resources :comments, only: [:create, :update, :destroy]
-
   # root route
   root 'pages#index'
 
@@ -55,8 +52,7 @@ Rails.application.routes.draw do
 
   # Example resource route with more complex sub-resources:
   #   resources :products do
-  #     resources :comments
-  #     resources :sales do
+  #     #     resources :sales do
   #       get 'recent', on: :collection
   #     end
   #   end

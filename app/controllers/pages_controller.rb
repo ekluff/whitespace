@@ -7,8 +7,6 @@ class PagesController < ApplicationController
 
   def show
     @image = Image.find(params[:id])
-    @new_comment = Comment.build_from(@image, current_user.id, "")
-    @comments = @image.comment_threads.order('created_at desc')
   end
 
 end

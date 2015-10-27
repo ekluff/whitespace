@@ -62,9 +62,6 @@ gem 'bootstrap-sass'
 # lightboxes for image gallery
 gem 'lightbox2-rails'
 
-# polymorphic comments model with threadable comments
-gem 'acts_as_commentable_with_threading'
-
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
