@@ -73,6 +73,8 @@ GEM
     erubis (2.7.0)
     execjs (2.6.0)
     exifr (1.2.3.1)
+    fancybox-rails (0.3.0)
+      railties (>= 3.1.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     i18n (0.7.0)
@@ -91,8 +93,6 @@ GEM
       addressable (~> 2.3)
     letter_opener (1.4.1)
       launchy (~> 2.2)
-    lightbox2-rails (2.7.1)
-      railties (>= 3.1)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.3)
@@ -188,11 +188,11 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   devise
   exifr (~> 1.2)
+  fancybox-rails
   jbuilder (~> 2.0)
   jquery-rails
   jquery-turbolinks
   letter_opener
-  lightbox2-rails
   paperclip (~> 4.3)
   rails (= 4.2.4)
   sass-rails (~> 5.0)

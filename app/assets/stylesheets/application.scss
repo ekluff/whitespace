@@ -11,10 +11,10 @@
  * file per style scope.
  *
  *= require_tree .
+ *= require fancybox
  *= require_self
  */
 
  @import 'bootstrap-sprockets';
  @import 'bootstrap';
  @import 'justifiedGallery';
- @import 'lightbox';

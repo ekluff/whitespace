@@ -9,4 +9,15 @@ ready = ->
     border: 0
   )
 
+  $('a.fancybox').fancybox(
+    padding: 0
+    transitionIn: 'fade'
+    transitionOut: 'fade'
+    showNavArrows: true
+    overlayOpacity: 0.7
+    overlayColor: '#000000'
+    nextEffect: 'fade',
+    prevEffect: 'fade'
+  )
+
 $(document).ready(ready)

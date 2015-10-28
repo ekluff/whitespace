@@ -60,7 +60,7 @@ gem 'devise'
 gem 'bootstrap-sass'
 
 # lightboxes for image gallery
-gem 'lightbox2-rails'
+gem 'fancybox-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
