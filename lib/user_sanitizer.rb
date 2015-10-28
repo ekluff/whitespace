@@ -1,4 +1,4 @@
-class User::ParameterSanitizer < Devise::ParameterSanitizer
+class UserParameterSanitizer < Devise::ParameterSanitizer
   def sign_in
     default_params.permit(:login, :password, :remember_me)
   end
