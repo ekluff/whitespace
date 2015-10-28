@@ -62,6 +62,12 @@ gem 'bootstrap-sass'
 # lightboxes for image gallery
 gem 'fancybox-rails'
 
+# make available jquery ui tools
+gem 'jquery-ui-rails'
+
+# use autocomplete with rails
+gem 'jquery-rails-autocomplete'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
