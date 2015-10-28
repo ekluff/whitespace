@@ -66,7 +66,7 @@ gem 'fancybox-rails'
 gem 'jquery-ui-rails'
 
 # use autocomplete with rails
-gem 'jquery-rails-autocomplete'
+gem 'rails-jquery-autocomplete'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
