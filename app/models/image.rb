@@ -12,6 +12,7 @@ class Image < ActiveRecord::Base
 
   accepts_nested_attributes_for     :exif
   acts_as_taggable_on               :locations, :contents, :keywords
+  attr_accessor                     :location
 
   before_save                       :format_title, on: [:create, :update]
   after_post_process                :save_exif

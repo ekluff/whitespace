@@ -1,0 +1,10 @@
+<div class="tag_form" id="location_form">
+  <ul id="location_list_ul">
+    <li id="no_locations_message">no locations yet!</li>
+  </ul>
+
+  <%= form_for @image, html: {remote: true, id: "new_location"} do |f| %>
+    <%= f.text_field :location, id: "location_input" %>
+    <%= f.submit "+" %>
+  <% end %>
+</div>

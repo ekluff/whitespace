@@ -1,4 +1,4 @@
-<%= form_for @image, html: { multipart: true } do |f| %>
+<%= form_for @image, html: {remote: true, multipart: true} do |f| %>
   <% if @image.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@image.errors.count, "error") %> prohibited this image from being saved:</h2>
@@ -27,15 +27,10 @@
     <%= f.label :splash, "Display on homepage?" %>
     <%= f.check_box :splash %>
   </div>
-
-  <div class="field">
-    <%= f.label :location_list %>
-    <%= f.select :location_list, @locations.collect {|t| [t.name, t.id]}, {}, multiple: true, class: "form-control" %>
-    <%= text_field_tag :location %>
-    <%= link_to "+", new_tag_path, class: "btn btn-primary", remote: true %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
+  <div id="location_list_hidden">
   </div>
 <% end %>
+
+<%= render 'location_form' %>
+
+<%= button_tag "Save Image", {type: "submit", form: "new_image"} %>

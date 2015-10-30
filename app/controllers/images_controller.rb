@@ -32,13 +32,12 @@ class ImagesController < ApplicationController
   # POST /images.json
   def create
     @image = Image.new(image_params)
-
-    @locations = Image.tag_counts_on(:locations) # returns all tags with context location
-    @contents = Image.tag_counts_on(:contents)
-    @keywords = Image.tag_counts_on(:keywords)
+    @location = image_params[:location]
 
     respond_to do |format|
-      if @image.save
+      if image_params[:location]
+        format.js { render :new_tag }
+      elsif @image.save
         format.html { redirect_to @image, notice: 'Image was successfully created.' }
         format.json { render :show, status: :created, location: @image }
       else
@@ -96,6 +95,6 @@ class ImagesController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def image_params
-    params.require(:image).permit(:caption, :title, :asset, :splash, location_list: [])
+    params.require(:image).permit(:caption, :title, :asset, :splash, :location, :location_list)
   end
 end

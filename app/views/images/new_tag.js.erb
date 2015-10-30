@@ -1,0 +1,4 @@
+$('#no_locations_message').hide();
+$('#location_list_hidden').append("<input type='hidden' name='image[location_list][]' value='<%= @location %>'>");
+$('#location_list_ul').append('<li><%= @location %></li>');
+$('#location_input').val("")
