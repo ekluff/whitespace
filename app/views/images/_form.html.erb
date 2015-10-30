@@ -27,6 +27,14 @@
     <%= f.label :splash, "Display on homepage?" %>
     <%= f.check_box :splash %>
   </div>
+
+  <div class="field">
+    <%= f.label :location_list %>
+    <%= f.select :location_list, @locations.collect {|t| [t.name, t.id]}, {}, multiple: true, class: "form-control" %>
+    <%= text_field_tag :location %>
+    <%= link_to "+", new_tag_path, class: "btn btn-primary", remote: true %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

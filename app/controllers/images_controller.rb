@@ -16,11 +16,14 @@ class ImagesController < ApplicationController
   # GET /images/new
   def new
     @image = Image.new
+    @locations = Image.tag_counts_on(:locations) # returns all tags with context location
+    @contents = Image.tag_counts_on(:contents)
+    @keywords = Image.tag_counts_on(:keywords)
   end
 
   # GET /images/1/edit
   def edit
-    @locations = @image.locations
+    @locations = Image.tag_counts_on(:locations)
     @contents = Image.tag_counts_on(:contents)
     @keywords = Image.tag_counts_on(:keywords)
   end
@@ -29,6 +32,10 @@ class ImagesController < ApplicationController
   # POST /images.json
   def create
     @image = Image.new(image_params)
+
+    @locations = Image.tag_counts_on(:locations) # returns all tags with context location
+    @contents = Image.tag_counts_on(:contents)
+    @keywords = Image.tag_counts_on(:keywords)
 
     respond_to do |format|
       if @image.save
@@ -45,6 +52,14 @@ class ImagesController < ApplicationController
   # PATCH/PUT /images/1.json
   def update
     # asset = @image.asset
+    # if image_params[:location]
+    #   @image.location_list.add(:location)
+    # elsif image_params[:content]
+    #   @image.content_list.add(:content)
+    # elsif image_params[:keyword]
+    #   @image.keyword_list.add(:keyword)
+    # else
+    #
 
     respond_to do |format|
       if @image.update(image_params)
@@ -81,6 +96,6 @@ class ImagesController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def image_params
-    params.require(:image).permit(:caption, :title, :asset, :splash, :location_list, :content_list, :keyword_list )
+    params.require(:image).permit(:caption, :title, :asset, :splash, location_list: [])
   end
 end

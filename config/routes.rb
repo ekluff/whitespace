@@ -9,7 +9,12 @@ Rails.application.routes.draw do
   # Images routes are only accessible to authenticated admins.
   authenticated :admin do
     resources :images
+    resources :tags, only: [:new, :create]
   end
+  #
+  # authenticated :admin do
+  #   resources :tags, only: [:new]
+  # end
 
   # page resources for publicly avaiable views
   resources :pages, only: [:index, :show]

@@ -16,8 +16,6 @@ ready = ->
     showNavArrows: true
     overlayOpacity: 0.7
     overlayColor: '#000000'
-    nextEffect: 'fade',
-    prevEffect: 'fade'
   )
 
 $(document).ready(ready)
