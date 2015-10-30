@@ -1,4 +1,4 @@
-<%= form_for @image, html: {remote: true, multipart: true} do |f| %>
+<%= form_for @image, html: {remote: true, multipart: true, id: "image_form"} do |f| %>
   <% if @image.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@image.errors.count, "error") %> prohibited this image from being saved:</h2>
@@ -33,4 +33,4 @@
 
 <%= render 'location_form' %>
 
-<%= button_tag "Save Image", {type: "submit", form: "new_image"} %>
+<%= button_tag "Save Image", {type: "submit", form: "image_form"} %>

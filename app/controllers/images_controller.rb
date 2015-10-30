@@ -35,9 +35,10 @@ class ImagesController < ApplicationController
     @location = image_params[:location]
 
     respond_to do |format|
-      if image_params[:location]
+      if @location
         format.js { render :new_tag }
       elsif @image.save
+        @image.location_list = image_params[:location_list]
         format.html { redirect_to @image, notice: 'Image was successfully created.' }
         format.json { render :show, status: :created, location: @image }
       else
@@ -50,18 +51,13 @@ class ImagesController < ApplicationController
   # PATCH/PUT /images/1
   # PATCH/PUT /images/1.json
   def update
-    # asset = @image.asset
-    # if image_params[:location]
-    #   @image.location_list.add(:location)
-    # elsif image_params[:content]
-    #   @image.content_list.add(:content)
-    # elsif image_params[:keyword]
-    #   @image.keyword_list.add(:keyword)
-    # else
-    #
+    @location = image_params[:location]
 
     respond_to do |format|
-      if @image.update(image_params)
+      if @location
+        format.js { render :new_tag }
+      elsif @image.update(image_params)
+        @image.location_list = image_params[:location_list]
         format.html { redirect_to @image, notice: 'Image was successfully updated.' }
         format.json { render :show, status: :ok, location: @image }
       else
