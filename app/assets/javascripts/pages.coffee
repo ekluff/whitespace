@@ -6,7 +6,7 @@ ready = ->
   $('#gallery').justifiedGallery(
     rowHeight: 300
     margins: 40
-    border: 0
+    border: 40
   )
 
   $('a.fancybox').fancybox(
